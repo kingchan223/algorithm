@@ -4,38 +4,37 @@ import java.util.Stack;
 public class B1874 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        Stack<Integer> stack = new Stack<>();
-        stack.push(-1);
-        int n = Integer.parseInt(br.readLine());
-        int[] number = new int[n];
-        int index = 0;
-        int now = 1;
-        boolean status = true;
-        for(int i=0; i<n; i++){
-            number[i] = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        int len = Integer.parseInt(br.readLine());
+        int[] array = new int[len];
+        for(int i=0; i< len; i++){
+            array[i] = Integer.parseInt(br.readLine());
         }
-        int[] arr = new int[5];
-        arr.toString();
-        while(index<n){
-            if(number[index] > stack.peek()){
-                stack.push(now++);
-                bw.write("+\n");
+        int now = 0;
+        int arrayIdx = 0;
+        Stack<Integer> stack = new Stack<>();
+
+        while(array[len-1]!=0){
+
+            if(stack.empty()){
+                sb.append('+').append('\n');
+                stack.push(++now);
             }
-            else if(number[index++] == stack.peek()){
-                stack.pop();
-//                index++;
-                bw.write("-\n");
+            else if(stack.peek()<array[arrayIdx]){
+                sb.append('+').append('\n');
+                stack.push(++now);
             }
-            else{//number[full] < stack.peek()
-                status = false;
-                System.out.println("NO");
+            else if(stack.peek() > array[arrayIdx]){
+                sb = new StringBuilder("NO");
                 break;
             }
+            else{
+                sb.append('-').append('\n');
+                array[arrayIdx] = 0;
+                arrayIdx++;
+                stack.pop();
+            }
         }
-        if(status){
-            bw.flush();
-        }
-        bw.close();
+        System.out.println(sb);
     }
 }

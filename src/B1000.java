@@ -7,8 +7,9 @@ public class B1000 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String str = bf.readLine();
+        System.out.println("str = " + str);
         StringTokenizer st = new StringTokenizer(str, " ");
-//        System.out.println(st.countTokens());
+
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         System.out.println(a+b);
