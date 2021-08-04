@@ -1,7 +1,9 @@
-import java.io.*;
-import java.util.Stack;
+package stack;
 
-public class B9012 {
+import java.io.*;
+
+
+public class B9012_1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -10,22 +12,22 @@ public class B9012 {
         while (n-- > 0){
             status = 0;
             String str = br.readLine();
-            Stack<Character> stack = new Stack<Character>();
+            int cnt = 0;
             for (char o : str.toCharArray()){
                 if (o == '(')
-                    stack.push(o);
+                    cnt++;
                 else{// ')'
-                    if (stack.empty()){
+                    if (cnt==0){
                         status = 1;
                         bw.write("NO\n");
                         break;
                     }else{
-                        stack.pop();
+                        cnt--;
                     }
                 }
             }
             if(status==0){
-                if(stack.empty()){
+                if(cnt==0){
                     bw.write("YES\n");
                 }
                 else{
