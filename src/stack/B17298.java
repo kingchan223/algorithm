@@ -26,8 +26,7 @@ public class B17298 {
 
         for(int i=0; i<n-1; i++){
             while((!stack.isEmpty()) && (array[stack.peek()] < array[aindex])){
-                result[stack.peek()] = array[aindex];
-                stack.pop();
+                result[stack.pop()] = array[aindex];
             }
             stack.push(aindex);
             aindex++;
