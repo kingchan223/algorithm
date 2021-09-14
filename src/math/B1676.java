@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /*
-* 팩토리얼의 0의 개수는 5의 개수를 구하라는 것과 같다.
+* 팩토리얼의 0의 개수는 5의 개수를 구하라는 것과 같다. 예를 들어 10!에서 0의 개수를 구하라고 한다면 5의 개수를 구하면 된다.
 * 왜냐하면 2*5가 있으면 0이 하나 생긴다. 근데 2는 5보다 무조건 많다. 그러니까 5만 구하면 되는거임
 * */
 public class B1676 {
