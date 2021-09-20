@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class B17103XXX {
+public class B17103 {
     public static void main(String[] args) throws IOException {
         int[] prime = new int[1000001];
         int pn = 0;
@@ -25,17 +25,15 @@ public class B17103XXX {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
-        for(int i=0; i<n; i++){
-            int num = Integer.parseInt(br.readLine());
+        for(int i=0; i<t; i++){
             int result = 0;
-            int now;
-            for(int j=0; j<prime.length; j++){
-                if(prime[j]==0 || prime[j] >= num) break;
-                if(!check[num-prime[j]]  ){
-                    now = prime[j];
-                    System.out.println("j="+j+":"+prime[j]+" + "+(num-prime[j]));
-                    System.out.println(check[num-prime[j]]);
-                    result += 1;
+            int num = Integer.parseInt(br.readLine());
+            for(int j=0; j<1000001; j++){
+                if(prime[j]>(num/2)){
+                    break;
+                }
+                if(!check[num-prime[j]]){
+                    result++;
                 }
             }
             System.out.println(result);
