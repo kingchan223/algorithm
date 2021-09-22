@@ -12,33 +12,33 @@ public class B1373XXX {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String binary = br.readLine();
         int len = binary.length();
-        //100개면
+
         int n = len / 3;//n=33개
         int m = len % 3;//m은 1개
-//        char[] result;
-//        if(m==0)
-//            result = new char[n];
-//        else
-//            result = new char[n + 1];
+
         int now = 0;
+        int temp = 0;
         if(m==1){
             if(binary.charAt(now++)=='1')
-                System.out.println(1);
+                System.out.print(1);
         }
         else if(m==2){
-
+            if(binary.charAt(now++)=='1')
+                temp += 2;
+            if(binary.charAt(now++)=='1')
+                temp += 1;
+            System.out.print(temp);
         }
 
-        int index = m;
         int a = 0;
         int b = 0;
         int c = 0;
         while(n-->0){
-            if(binary.charAt(index++)=='1') a = 4;
+            if(binary.charAt(now++)=='1') a = 4;
             else a=0;
-            if(binary.charAt(index++)=='1') b = 2;
+            if(binary.charAt(now++)=='1') b = 2;
             else b=0;
-            if(binary.charAt(index++)=='1') c = 1;
+            if(binary.charAt(now++)=='1') c = 1;
             else c=0;
             System.out.print(a+b+c);
         }
