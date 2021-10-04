@@ -3,7 +3,8 @@ package dynamic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
+/*최적화 코드로 다시 풀어보기 */
 //dp를 해결한 후, 역추정을 해야하는 문제
 public class B14002 {
     public static void main(String[] args) throws IOException {
@@ -13,6 +14,7 @@ public class B14002 {
         int[] array = new int[n+1];
         int[] vp = new int[n+1];
         int[] dp = new int[n+1];
+        int resultIdx = 0;
         int result = 1;
         int idx=1;
         while(st.hasMoreTokens()){
@@ -33,15 +35,24 @@ public class B14002 {
                         vp[i] = j;
                         if(result < dp[i]){
                             result = dp[i];
+                            resultIdx = i;
                         }
                     }
                 }
             }
-
             System.out.println(result);
-            for(int i=1; i<n+1; i++){
-                if(vp[i]==0) continue;
-                System.out.print(vp[i]+" ");
+            if(result>1){
+                Stack<Integer> stack = new Stack<>();
+                stack.add(resultIdx);
+
+                while(vp[stack.peek()]!=0){
+                    stack.push(vp[stack.peek()]);
+                }
+                while(!stack.isEmpty()){
+                    System.out.print(array[stack.pop()]+" ");
+                }
+            }else{
+                System.out.println(array[result]);
             }
         }
     }
