@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+
 /*새로운 배열. 즉 dp배열을 만들 생각을 하자.*/
 public class B1912 {
     public static void main(String[] args) throws IOException {
