@@ -12,7 +12,7 @@ public class B1699 {
         int n = Integer.parseInt(br.readLine());
 
         for (int i = 1; i <= n; i++) {
-            dp[i] = i;
+            dp[i] = i;/*최솟값을 구하는 문제는 초기값이 0이면 안된다.*/
             for (int j = 1; j*j <= i; j++) {/*제곱수*/
                 if(dp[i] > dp[i-j*j] + 1)
                     dp[i] = dp[i-j*j] + 1;
