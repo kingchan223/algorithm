@@ -13,11 +13,9 @@ public class B11722 {
         int[] arr = new int[n + 1];
         int[] d = new int[n + 1];
 
-        for (int i = 1; i < n + 1; i++)
-            arr[i] =Integer.parseInt(st.nextToken());
+        for (int i = 1; i < n + 1; i++) arr[i] =Integer.parseInt(st.nextToken());
 
-        for (int i = 1; i < n + 1; i++)
-            d[i] = 1;
+        for (int i = 1; i < n + 1; i++) d[i] = 1;
         int result = 1;
         for (int i = 2; i < n + 1; i++) {
             for (int j = i - 1; j > 0; j--) {
